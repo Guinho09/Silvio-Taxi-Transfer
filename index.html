@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silvio Taxi Executivo</title>
+    <!-- Adicionando a fonte Roboto do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; /* Usando Roboto como fonte principal */
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+        .header {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .header img {
+            max-width: 150px;
+        }
+        .nav {
+            display: flex;
+            gap: 20px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        .nav a:hover {
+            color: #25D366;
+        }
+        .container {
+            padding: 100px 20px 60px; /* Ajuste para o cabeçalho fixo e espaço no final */
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .contact {
+            margin-top: 20px;
+            font-size: 14px; /* Fonte menor para a seção de contato */
+        }
+        .footer {
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 12px; /* Fonte pequena para o rodapé */
+            margin-top: 40px; /* Espaço acima do rodapé */
+        }
+        .whatsapp-button {
+            background-color: #25D366;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+        }
+        .services, .about, .vehicle, .contact-form {
+            scroll-margin-top: 100px; /* Offset para o cabeçalho fixo */
+        }
+        .services h3, .about h3, .vehicle h3 {
+            color: #000;
+        }
+        .services ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .services ul li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .about p, .vehicle p {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            line-height: 1.6;
+        }
+        .contact-form {
+            margin-top: 30px;
+            text-align: left;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background-color: #333;
+        }
+        .vehicle-content {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .vehicle-text {
+            flex: 1;
+        }
+        .vehicle-images {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .vehicle-images img {
+            max-width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .hero {
+            background-image: url('caminho-da-imagem-spin.jpg'); /* Substitua pelo caminho da sua foto */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Overlay escuro para melhorar a legibilidade */
+            z-index: 1;
+        }
+        .hero h1, .hero p, .hero .whatsapp-button {
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-family: 'Georgia', serif;
+            font-size: 36px;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 18px;
+            margin: 10px 0 20px;
+        }
+        .hero .whatsapp-button {
+            background-color: #25D366;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .hero .whatsapp-button:hover {
+            background-color: #128C7E;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <div class="header">
+        <!-- Logo à esquerda -->
+        <img src="Logo.jpeg" alt="Logo Silvio Taxi Executivo">
+        <!-- Menu de navegação centralizado -->
+        <div class="nav">
+            <a href="#servicos">Serviços</a>
+            <a href="#veiculo">Veículo</a>
+            <a href="#sobre">Sobre Nós</a>
+            <a href="#contato">Contato</a>
+        </div>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="container">
+        <!-- Seção Hero (Imagem de fundo da Spin) -->
+        <div class="hero">
+            <h1>Táxi de recepção rápida em São Paulo</h1>
+            <p>Oferecemos um serviço ágil e confiável para atender suas necessidades de transporte na capital paulista.</p>
+            <a href="https://wa.me/5511987572054" class="whatsapp-button" target="_blank">
+                Solicitar Orçamento
+            </a>
+        </div>
+
+        <!-- Seção de Serviços -->
+        <div id="servicos" class="services">
+            <h2>Serviços</h2>
+            <ul>
+                <li><strong>Transfer em todos os Aeroportos de São Paulo</strong></li>
+                <li><strong>Transfer para outras cidades e estados</strong></li>
+                <li>Transporte executivo com conforto e segurança.</li>
+                <li>Wi-Fi a bordo para você ficar conectado.</li>
+                <li>Cortesia: água mineral, água com gás, suco de laranja e água de coco.</li>
+                <li>Até duas cadeirinhas infantis gratuitas.</li>
+                <li>Atendimento personalizado 24 horas.</li>
+            </ul>
+        </div>
+
+        <!-- Botão de WhatsApp -->
+        <a href="https://wa.me/5511987572054" class="whatsapp-button" target="_blank">
+            Fale conosco no WhatsApp
+        </a>
+
+        <!-- Seção Veículo -->
+        <div id="veiculo" class="vehicle">
+            <h2>Veículo</h2>
+            <div class="vehicle-content">
+                <!-- Texto sobre o veículo -->
+                <div class="vehicle-text">
+                    <p>
+                        O Chevrolet Spin 2024 7 lugares (6 passageiros e 1 motorista) oferece o máximo em conforto e praticidade para quem precisa de um transporte espaçoso e eficiente. Com um design moderno e robusto, este veículo é perfeito para viagens executivas e longas distâncias. Além de contar com uma cabine ampla, que acomoda até 7 pessoas com conforto, o modelo também possui Wi-Fi a bordo, garantindo conectividade durante todo o trajeto. Equipado com tecnologia de ponta e recursos de segurança, a Spin 2024 oferece uma experiência de viagem tranquila e sem preocupações, tornando-a a escolha ideal para seus deslocamentos entre o aeroporto e outras cidades.
+                    </p>
+                </div>
+                <!-- Espaço para as fotos do carro -->
+                <div class="vehicle-images">
+                    <!-- Adicione as imagens do carro aqui -->
+                    <img src="caminho-da-imagem1.jpg" alt="Chevrolet Spin 2024">
+                    <img src="caminho-da-imagem2.jpg" alt="Chevrolet Spin 2024">
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção Sobre Nós -->
+        <div id="sobre" class="about">
+            <h2>Sobre Nós</h2>
+            <p>
+                A Silvio Taxi começou sua jornada em 2022 com o objetivo de oferecer um atendimento de excelência, sempre focado na segurança e pontualidade. Desde então, nos destacamos pela atenção ao cliente, garantindo a sua satisfação em cada viagem. Com mais de 725 corridas realizadas e mais de 510 clientes atendidos, nosso compromisso é proporcionar um serviço confiável, confortável e personalizado, sempre com a qualidade que você merece.
+            </p>
+        </div>
+
+        <!-- Formulário de Contato -->
+        <div id="contato" class="contact-form">
+            <h2>Entre em Contato</h2>
+            <form action="#" method="post">
+                <input type="text" name="name" placeholder="Seu nome" required>
+                <input type="email" name="email" placeholder="Seu e-mail" required>
+                <input type="tel" name="phone" placeholder="Seu telefone">
+                <textarea name="message" placeholder="Sua mensagem" rows="5" required></textarea>
+                <button type="submit">Enviar Mensagem</button>
+            </form>
+        </div>
+
+        <!-- Seção de Contato -->
+        <h2>Contato</h2>
+        <div class="contact">
+            <p><strong>Telefone:</strong> +55 11 98757-2054</p>
+            <p><strong>E-mail:</strong> Silviotx61@gmail.com</p>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <div class="footer">
+        &copy; 2025 Silvio Taxi Executivo. Todos os direitos reservados.
+    </div>
+</body>
+</html>
