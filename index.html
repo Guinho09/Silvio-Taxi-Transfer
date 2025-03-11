@@ -200,6 +200,12 @@
             .nav {
                 gap: 10px; /* Espaçamento menor entre os botões */
                 font-size: 14px; /* Fonte menor para o menu */
+                left: auto; /* Remove o posicionamento centralizado */
+                right: 10px; /* Alinha o menu à direita */
+                transform: none; /* Remove a transformação */
+            }
+            .nav a {
+                font-size: 14px; /* Fonte menor para os itens do menu */
             }
             .hero h1 {
                 font-size: 28px; /* Título menor em dispositivos móveis */
@@ -232,8 +238,7 @@
         <div class="nav">
             <a href="#servicos">Serviços</a>
             <a href="#veiculo">Veículo</a>
-            <a href="#sobre">Sobre Nós</a>
-            <a href="#contato">Contato</a>
+            <a href="#contato">Contato</a> <!-- Removi "Sobre Nós" -->
         </div>
     </div>
 
