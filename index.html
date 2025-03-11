@@ -187,6 +187,39 @@
         .hero .whatsapp-button:hover {
             background-color: #128C7E;
         }
+
+        /* Estilos para dispositivos móveis */
+        @media (max-width: 768px) {
+            .header {
+                padding: 10px;
+            }
+            .header img {
+                max-width: 100px; /* Logo menor em dispositivos móveis */
+            }
+            .nav {
+                gap: 10px; /* Espaçamento menor entre os botões */
+                font-size: 16px; /* Fonte menor para o menu */
+            }
+            .hero h1 {
+                font-size: 28px; /* Título menor em dispositivos móveis */
+            }
+            .hero p {
+                font-size: 16px; /* Texto menor em dispositivos móveis */
+            }
+            .hero .whatsapp-button {
+                padding: 10px 20px; /* Botão menor em dispositivos móveis */
+                font-size: 16px;
+            }
+            .vehicle-content {
+                flex-direction: column; /* Empilha texto e imagens em dispositivos móveis */
+            }
+            .vehicle-images img {
+                max-width: 100%; /* Garante que as imagens se ajustem à tela */
+            }
+            .contact-form input, .contact-form textarea {
+                font-size: 14px; /* Fonte menor para o formulário em dispositivos móveis */
+            }
+        }
     </style>
 </head>
 <body>
@@ -282,7 +315,7 @@
 
     <!-- Rodapé -->
     <div class="footer">
-        &copy; 2025 Silvio Taxi Executivo. Todos os direitos reservados.
+        © 2025 Silvio Táxi. Todos os direitos reservados. <!-- Texto atualizado -->
     </div>
 </body>
 </html>
