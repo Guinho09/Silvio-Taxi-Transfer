@@ -10,10 +10,12 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #e0e0e0;
+            background-color: #ffffff; /* Fundo branco */
             color: #333;
             text-align: center;
         }
+        
+        /* CABEÇALHO */
         .header {
             background-color: #000;
             color: #fff;
@@ -26,44 +28,57 @@
             width: 100%;
             z-index: 1000;
         }
+        
         .header img {
-            max-width: 150px;
+            max-width: 100px; /* Tamanho reduzido */
             height: auto;
             display: block;
         }
+        
         .nav {
             display: flex;
             gap: 20px;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
         }
+        
         .nav a {
             color: #fff;
             text-decoration: none;
             font-size: 18px;
             transition: color 0.3s;
         }
+        
         .nav a:hover {
             color: #25D366;
         }
+        
+        /* CONTEÚDO PRINCIPAL */
         .container {
             padding: 100px 20px 60px;
             max-width: 800px;
             margin: 0 auto;
         }
-        .contact {
+        
+        /* SEÇÃO VEÍCULO */
+        .vehicle-content {
+            display: flex;
+            flex-direction: column; /* Padrão: empilhado */
+        }
+        
+        .vehicle-text {
             margin-top: 20px;
-            font-size: 14px;
         }
-        .footer {
-            background-color: #000;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            font-size: 12px;
-            margin-top: 40px;
+        
+        /* CARROSSEL */
+        .carrossel {
+            position: relative;
+            max-width: 100%;
+            margin: 20px 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
+        
+        /* BOTÕES */
         .whatsapp-button {
             background-color: #25D366;
             color: #fff;
@@ -74,291 +89,65 @@
             margin-top: 20px;
             font-size: 18px;
         }
-        .whatsapp-button:hover {
-            background-color: #128C7E;
+        
+        /* MEDIA QUERIES */
+        @media (min-width: 1024px) {
+            /* CABEÇALHO DESKTOP */
+            .header {
+                padding: 15px 5%;
+                justify-content: space-between;
+            }
+            
+            .header img {
+                max-width: 90px; /* Logo menor para desktop */
+            }
+            
+            .nav {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                gap: 30px; /* Espaçamento maior entre botões */
+            }
+            
+            /* SEÇÃO VEÍCULO DESKTOP */
+            .vehicle-content {
+                flex-direction: row; /* Lado a lado no desktop */
+            }
+            
+            .vehicle-text {
+                margin-top: 0;
+                margin-left: 30px;
+            }
         }
-        .services, .about, .vehicle, .contact-form {
-            scroll-margin-top: 100px;
-        }
-        .services ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .services ul li {
-            background-color: #fff;
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .about p, .vehicle p {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            line-height: 1.6;
-        }
-        .contact-form {
-            margin-top: 30px;
-            text-align: left;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .contact-form button {
-            background-color: #000;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .contact-form button:hover {
-            background-color: #333;
-        }
-        .vehicle-content {
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-        }
-        .vehicle-text {
-            flex: 1;
-        }
-        .hero {
-            background-image: url('caminho-da-imagem-spin.jpg');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            padding: 60px 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-        .hero h1, .hero p, .hero .whatsapp-button {
-            position: relative;
-            z-index: 2;
-        }
-        .hero h1 {
-            font-family: 'Georgia', serif;
-            font-size: 36px;
-            margin: 0;
-        }
-        .hero p {
-            font-size: 18px;
-            margin: 10px 0 20px;
-        }
-        .hero .whatsapp-button {
-            background-color: #25D366;
-            color: #fff;
-            padding: 15px 30px;
-            font-size: 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        .hero .whatsapp-button:hover {
-            background-color: #128C7E;
-        }
-
-        /* Estilos do Carrossel */
-        .carrossel {
-            position: relative;
-            max-width: 100%;
-            margin: 20px 0;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        .carrossel-container {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            height: 300px;
-        }
-        .carrossel-slide {
-            min-width: 100%;
-            height: 100%;
-        }
-        .carrossel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        .carrossel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0,0,0,0.5);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            z-index: 10;
-            border-radius: 50%;
-            font-size: 18px;
-            transition: background 0.3s;
-        }
-        .carrossel-btn:hover {
-            background-color: rgba(0,0,0,0.8);
-        }
-        #prevBtn {
-            left: 10px;
-        }
-        #nextBtn {
-            right: 10px;
-        }
-        .carrossel-indicadores {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-        .indicador {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #ccc;
-            margin: 0 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .indicador.ativo {
-            background-color: #25D366;
-        }
-
-        /* Responsivo Mobile */
+        
         @media (max-width: 768px) {
+            /* CABEÇALHO MOBILE */
             .header {
                 flex-direction: column;
                 padding: 10px;
                 height: auto;
                 position: relative;
             }
+            
             .header img {
                 max-width: 120px;
                 margin-bottom: 10px;
             }
+            
             .nav {
                 position: static;
                 transform: none;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 8px;
-                width: 100%;
+                gap: 10px;
             }
-            .nav a {
-                font-size: 16px;
-                padding: 8px 12px;
-                background-color: rgba(0,0,0,0.2);
-                border-radius: 4px;
-                white-space: nowrap;
-            }
-            .container {
-                padding-top: 20px;
-            }
-            .hero h1 {
-                font-size: 28px;
-            }
-            .hero p {
-                font-size: 16px;
-            }
-            .hero .whatsapp-button {
-                padding: 10px 20px;
-                font-size: 16px;
-            }
-            .carrossel-container {
-                height: 250px;
-            }
-            .carrossel-btn {
-                padding: 8px 12px;
-                font-size: 16px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav a {
-                font-size: 15px;
-                padding: 7px 10px;
-            }
-            .carrossel-container {
-                height: 200px;
-            }
-        }
-
-        /* Ajustes Específicos para Desktop */
-        @media (min-width: 1024px) {
-            /* 1. Correção da logo */
-            .header img {
-                max-width: 110px;
-                height: auto;
-                margin-right: 15px;
-            }
-
-            /* 2. Ajuste do carrossel */
-            .carrossel {
-                max-width: 900px;
-                height: 380px;
-                margin: 0 auto 30px;
-            }
-
-            .carrossel-slide img {
-                object-fit: contain;
-                background-color: #f5f5f5;
-            }
-
-            /* Ajustes complementares */
-            .header {
-                padding: 12px 5%;
-                justify-content: center;
-                height: 80px;
-                position: sticky;
-            }
-
-            .nav {
-                position: relative;
-                left: 0;
-                transform: none;
-            }
-
-            .container {
-                padding: 120px 5% 60px;
-                max-width: 900px;
-            }
-
+            
+            /* SEÇÃO VEÍCULO MOBILE */
             .vehicle-content {
-                flex-direction: column;
+                flex-direction: column; /* Empilhado no mobile */
             }
-
+            
             .vehicle-text {
-                width: 100%;
-                margin-top: 30px;
-            }
-        }
-
-        /* Melhoria para telas muito grandes */
-        @media (min-width: 1440px) {
-            .carrossel {
-                max-width: 1000px;
-                height: 420px;
-            }
-
-            .container {
-                max-width: 1200px;
+                margin-top: 20px;
+                margin-left: 0;
             }
         }
     </style>
@@ -366,7 +155,7 @@
 <body>
     <!-- Cabeçalho -->
     <div class="header">
-        <img src="Logo-silvio-taxi.jpeg" alt="Silvio Táxi Executivo - Logo" width="150">
+        <img src="Logo-silvio-taxi.jpeg" alt="Silvio Táxi Executivo">
         <div class="nav">
             <a href="#servicos">Serviços</a>
             <a href="#veiculo">Veículo</a>
@@ -405,7 +194,7 @@
             Fale conosco no WhatsApp
         </a>
 
-        <!-- Seção Veículo com Carrossel -->
+        <!-- Seção Veículo -->
         <div id="veiculo" class="vehicle">
             <h2>Veículo</h2>
             <div class="vehicle-content">
@@ -413,22 +202,20 @@
                 <div class="carrossel">
                     <div class="carrossel-container" id="carrossel">
                         <div class="carrossel-slide">
-                            <img src="foto-original-carro.jpg" alt="Chevrolet Spin 2024 - Vista original">
+                            <img src="foto-original-carro.jpg" alt="Chevrolet Spin 2024">
                         </div>
                         <div class="carrossel-slide">
-                            <img src="Bancos-pre-deitados-profissional.jpg" alt="Chevrolet Spin 2024 - Bancos pré-deitados">
+                            <img src="Bancos-pre-deitados-profissional.jpg" alt="Chevrolet Spin 2024">
                         </div>
                         <div class="carrossel-slide">
-                            <img src="Banco-deitado-profissional.jpg" alt="Chevrolet Spin 2024 - Banco deitado">
+                            <img src="Banco-deitado-profissional.jpg" alt="Chevrolet Spin 2024">
                         </div>
                         <div class="carrossel-slide">
-                            <img src="foto-opcoes.jpg" alt="Chevrolet Spin 2024 - Opções de configuração">
+                            <img src="foto-opcoes.jpg" alt="Chevrolet Spin 2024">
                         </div>
                     </div>
-                    
                     <button class="carrossel-btn" id="prevBtn">&#10094;</button>
                     <button class="carrossel-btn" id="nextBtn">&#10095;</button>
-                    
                     <div class="carrossel-indicadores" id="indicadores">
                         <span class="indicador ativo"></span>
                         <span class="indicador"></span>
@@ -480,7 +267,7 @@
     </div>
 
     <script>
-        // Carrossel automático e por controles
+        // Carrossel automático
         document.addEventListener('DOMContentLoaded', function() {
             const carrossel = document.getElementById('carrossel');
             const slides = document.querySelectorAll('.carrossel-slide');
@@ -494,7 +281,6 @@
             function updateCarrossel() {
                 carrossel.style.transform = `translateX(-${currentIndex * 100}%)`;
                 
-                // Atualiza indicadores
                 indicadores.forEach((ind, index) => {
                     ind.classList.toggle('ativo', index === currentIndex);
                 });
@@ -510,11 +296,9 @@
                 updateCarrossel();
             }
             
-            // Controles
             nextBtn.addEventListener('click', nextSlide);
             prevBtn.addEventListener('click', prevSlide);
             
-            // Indicadores
             indicadores.forEach((ind, index) => {
                 ind.addEventListener('click', () => {
                     currentIndex = index;
@@ -522,10 +306,8 @@
                 });
             });
             
-            // Auto-play (15 segundos)
             let intervalo = setInterval(nextSlide, 15000);
             
-            // Pausa ao passar o mouse
             const carrosselContainer = document.querySelector('.carrossel');
             carrosselContainer.addEventListener('mouseenter', () => {
                 clearInterval(intervalo);
@@ -535,7 +317,6 @@
                 intervalo = setInterval(nextSlide, 15000);
             });
 
-            // Atualiza o ano automaticamente
             document.getElementById('current-year').textContent = new Date().getFullYear();
         });
     </script>
