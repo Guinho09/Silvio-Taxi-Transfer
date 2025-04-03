@@ -128,17 +128,6 @@
         .vehicle-text {
             flex: 1;
         }
-        .vehicle-images {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .vehicle-images img {
-            max-width: 100%;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
         .hero {
             background-image: url('caminho-da-imagem-spin.jpg');
             background-size: cover;
@@ -186,6 +175,81 @@
             background-color: #128C7E;
         }
 
+        /* Estilos do Carrossel */
+        .carrossel {
+            position: relative;
+            max-width: 100%;
+            margin: 20px 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .carrossel-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 300px;
+        }
+        
+        .carrossel-slide {
+            min-width: 100%;
+            height: 100%;
+        }
+        
+        .carrossel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .carrossel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 50%;
+            font-size: 18px;
+            transition: background 0.3s;
+        }
+        
+        .carrossel-btn:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+        
+        #prevBtn {
+            left: 10px;
+        }
+        
+        #nextBtn {
+            right: 10px;
+        }
+        
+        .carrossel-indicadores {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        
+        .indicador {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .indicador.ativo {
+            background-color: #25D366;
+        }
+
         /* Responsivo */
         @media (max-width: 768px) {
             .header {
@@ -229,11 +293,31 @@
             .vehicle-content {
                 flex-direction: column;
             }
+            .carrossel-container {
+                height: 250px;
+            }
+            .carrossel-btn {
+                padding: 8px 12px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav {
+                gap: 5px;
+            }
+            .nav a {
+                font-size: 12px;
+                padding: 5px 8px;
+            }
+            .carrossel-container {
+                height: 200px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Cabeçalho com logo corrigida -->
+    <!-- Cabeçalho -->
     <div class="header">
         <img src="Logo-silvio-taxi.jpeg" alt="Silvio Táxi Executivo - Logo" width="150">
         <div class="nav">
@@ -273,7 +357,7 @@
             Fale conosco no WhatsApp
         </a>
 
-        <!-- Seção Veículo -->
+        <!-- Seção Veículo com Carrossel -->
         <div id="veiculo" class="vehicle">
             <h2>Veículo</h2>
             <div class="vehicle-content">
@@ -282,9 +366,33 @@
                         O Chevrolet Spin 2024 7 lugares (6 passageiros e 1 motorista) oferece o máximo em conforto e praticidade para quem precisa de um transporte espaçoso e eficiente. Com um design moderno e robusto, este veículo é perfeito para viagens executivas e longas distâncias. Além de contar com uma cabine ampla, que acomoda até 7 pessoas com conforto, o modelo também possui Wi-Fi a bordo, garantindo conectividade durante todo o trajeto. Equipado com tecnologia de ponta e recursos de segurança, a Spin 2024 oferece uma experiência de viagem tranquila e sem preocupações, tornando-a a escolha ideal para seus deslocamentos entre o aeroporto e outras cidades.
                     </p>
                 </div>
-                <div class="vehicle-images">
-                    <img src="caminho-da-imagem1.jpg" alt="Chevrolet Spin 2024">
-                    <img src="caminho-da-imagem2.jpg" alt="Chevrolet Spin 2024">
+                
+                <!-- Carrossel de Imagens -->
+                <div class="carrossel">
+                    <div class="carrossel-container" id="carrossel">
+                        <div class="carrossel-slide">
+                            <img src="foto-original-carro.jpg" alt="Chevrolet Spin 2024 - Vista original">
+                        </div>
+                        <div class="carrossel-slide">
+                            <img src="Bancos-pre-deitados-profissional.jpg" alt="Chevrolet Spin 2024 - Bancos pré-deitados">
+                        </div>
+                        <div class="carrossel-slide">
+                            <img src="Banco-deitado-profissional.jpg" alt="Chevrolet Spin 2024 - Banco deitado">
+                        </div>
+                        <div class="carrossel-slide">
+                            <img src="foto-opcoes.jpg" alt="Chevrolet Spin 2024 - Opções de configuração">
+                        </div>
+                    </div>
+                    
+                    <button class="carrossel-btn" id="prevBtn">&#10094;</button>
+                    <button class="carrossel-btn" id="nextBtn">&#10095;</button>
+                    
+                    <div class="carrossel-indicadores" id="indicadores">
+                        <span class="indicador ativo"></span>
+                        <span class="indicador"></span>
+                        <span class="indicador"></span>
+                        <span class="indicador"></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -319,7 +427,68 @@
 
     <!-- Rodapé -->
     <div class="footer">
-        © 2025 Silvio Táxi. Todos os direitos reservados.
+        © <span id="current-year">2025</span> Silvio Táxi. Todos os direitos reservados.
     </div>
+
+    <script>
+        // Carrossel automático e por controles
+        document.addEventListener('DOMContentLoaded', function() {
+            const carrossel = document.getElementById('carrossel');
+            const slides = document.querySelectorAll('.carrossel-slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const indicadores = document.querySelectorAll('.indicador');
+            
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+            
+            function updateCarrossel() {
+                carrossel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Atualiza indicadores
+                indicadores.forEach((ind, index) => {
+                    ind.classList.toggle('ativo', index === currentIndex);
+                });
+            }
+            
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateCarrossel();
+            }
+            
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateCarrossel();
+            }
+            
+            // Controles
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            // Indicadores
+            indicadores.forEach((ind, index) => {
+                ind.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarrossel();
+                });
+            });
+            
+            // Auto-play (opcional)
+            let intervalo = setInterval(nextSlide, 5000);
+            
+            // Pausa ao passar o mouse
+            const carrosselContainer = document.querySelector('.carrossel');
+            carrosselContainer.addEventListener('mouseenter', () => {
+                clearInterval(intervalo);
+            });
+            
+            carrosselContainer.addEventListener('mouseleave', () => {
+                intervalo = setInterval(nextSlide, 5000);
+            });
+
+            // Atualiza o ano automaticamente
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
 </body>
 </html>
