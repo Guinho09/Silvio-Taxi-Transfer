@@ -121,12 +121,11 @@
             background-color: #333;
         }
         .vehicle-content {
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
+            display: block;
         }
         .vehicle-text {
-            flex: 1;
+            margin-top: 20px;
+            width: 100%;
         }
         .hero {
             background-image: url('caminho-da-imagem-spin.jpg');
@@ -288,9 +287,6 @@
                 padding: 8px 12px;
                 font-size: 16px;
             }
-            .vehicle-content {
-                flex-direction: column;
-            }
         }
 
         @media (max-width: 480px) {
@@ -356,7 +352,7 @@
             .carrossel {
                 max-width: 900px;
                 height: 380px;
-                margin: 0 auto 30px;
+                margin: 20px auto;
             }
 
             .carrossel-slide img {
@@ -368,15 +364,6 @@
             .container {
                 padding: 120px 5% 60px;
                 max-width: 900px;
-            }
-
-            .vehicle-content {
-                flex-direction: row;
-            }
-
-            .vehicle-text {
-                width: 100%;
-                margin-top: 0;
             }
         }
 
@@ -467,7 +454,7 @@
                     </div>
                 </div>
                 
-                <!-- Texto -->
+                <!-- Texto SEMPRE ABAIXO DO CARROSSEL -->
                 <div class="vehicle-text">
                     <p>
                         O Chevrolet Spin 2024 7 lugares (6 passageiros e 1 motorista) oferece o máximo em conforto e praticidade para quem precisa de um transporte espaçoso e eficiente. Com um design moderno e robusto, este veículo é perfeito para viagens executivas e longas distâncias. Além de contar com uma cabine ampla, que acomoda até 7 pessoas com conforto, o modelo também possui Wi-Fi a bordo, garantindo conectividade durante todo o trajeto. Equipado com tecnologia de ponta e recursos de segurança, a Spin 2024 oferece uma experiência de viagem tranquila e sem preocupações, tornando-a a escolha ideal para seus deslocamentos entre o aeroporto e outras cidades.
