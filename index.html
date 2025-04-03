@@ -125,6 +125,9 @@
             gap: 20px;
             align-items: flex-start;
         }
+        .vehicle-text {
+            flex: 1;
+        }
         .hero {
             background-image: url('caminho-da-imagem-spin.jpg');
             background-size: cover;
@@ -299,35 +302,61 @@
 
         /* Ajustes Específicos para Desktop */
         @media (min-width: 1024px) {
+            /* 1. Correção da logo */
+            .header img {
+                max-width: 110px;
+                height: auto;
+                margin-right: 15px;
+            }
+
+            /* 2. Ajuste do carrossel */
+            .carrossel {
+                max-width: 900px;
+                height: 380px;
+                margin: 0 auto 30px;
+            }
+
+            .carrossel-slide img {
+                object-fit: contain;
+                background-color: #f5f5f5;
+            }
+
+            /* Ajustes complementares */
             .header {
-                padding: 15px 5%;
+                padding: 12px 5%;
+                justify-content: center;
                 height: 80px;
                 position: sticky;
             }
-            .header img {
-                max-width: 130px;
+
+            .nav {
+                position: relative;
+                left: 0;
+                transform: none;
             }
+
             .container {
                 padding: 120px 5% 60px;
                 max-width: 900px;
             }
+
             .vehicle-content {
                 flex-direction: column;
             }
+
             .vehicle-text {
                 width: 100%;
                 margin-top: 30px;
             }
-            .carrossel {
-                max-width: 800px;
-                margin: 0 auto 30px;
-            }
-            .hero {
-                margin-top: 20px;
-            }
         }
 
+        /* Melhoria para telas muito grandes */
         @media (min-width: 1440px) {
+            .carrossel {
+                max-width: 1000px;
+                height: 420px;
+            }
+
             .container {
                 max-width: 1200px;
             }
