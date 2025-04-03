@@ -47,6 +47,31 @@
         .nav a:hover {
             color: #25D366;
         }
+        .header-whatsapp {
+            background-color: #25D366;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: background-color 0.3s;
+            margin-left: auto;
+        }
+        .header-whatsapp:hover {
+            background-color: #128C7E;
+        }
+        .header-whatsapp::before {
+            content: "";
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-6.29-3.43c.545 1.422 1.69 2.595 3.151 2.934.197.05.394.074.57.074.347 0 .669-.05.966-.149 1.423-.396 2.41-1.537 2.647-2.74.033-.174.033-.347.033-.521 0-.396-.074-.768-.223-1.114-.446-1.151-1.437-1.933-2.56-2.149a3.71 3.71 0 0 0-.892-.074c-.347 0-.669.05-.966.149-1.423.396-2.41 1.537-2.646 2.74-.025.174-.05.347-.05.521 0 .397.074.768.224 1.114"/></svg>');
+            background-size: contain;
+        }
         .container {
             padding: 100px 20px 60px;
             max-width: 800px;
@@ -122,10 +147,10 @@
         }
         .vehicle-content {
             display: block;
+            width: 100%;
         }
         .vehicle-text {
-            margin-top: 20px;
-            width: 100%;
+            margin-top: 25px;
         }
         .hero {
             background-image: url('caminho-da-imagem-spin.jpg');
@@ -173,8 +198,6 @@
         .hero .whatsapp-button:hover {
             background-color: #128C7E;
         }
-
-        /* Estilos do Carrossel */
         .carrossel {
             position: relative;
             max-width: 100%;
@@ -238,8 +261,6 @@
         .indicador.ativo {
             background-color: #25D366;
         }
-
-        /* Responsivo Mobile */
         @media (max-width: 768px) {
             .header {
                 flex-direction: column;
@@ -267,6 +288,13 @@
                 border-radius: 4px;
                 white-space: nowrap;
             }
+            .header-whatsapp {
+                padding: 6px 10px;
+                font-size: 12px;
+                position: absolute;
+                right: 10px;
+                top: 10px;
+            }
             .container {
                 padding-top: 20px;
             }
@@ -288,7 +316,6 @@
                 font-size: 16px;
             }
         }
-
         @media (max-width: 480px) {
             .nav a {
                 font-size: 15px;
@@ -298,23 +325,19 @@
                 height: 200px;
             }
         }
-
-        /* Ajustes para Desktop */
         @media (min-width: 1024px) {
-            /* Cabeçalho reformatado */
             .header {
                 padding: 12px 5%;
                 justify-content: flex-start;
                 height: 80px;
                 position: sticky;
+                padding-right: 15px;
             }
-            
             .header img {
                 max-width: 80px;
                 height: auto;
                 margin-right: 30px;
             }
-            
             .nav {
                 position: relative;
                 left: 0;
@@ -322,17 +345,14 @@
                 margin: 0 auto;
                 gap: 30px;
             }
-            
             .nav a {
                 font-size: 16px;
                 padding: 8px 0;
                 position: relative;
             }
-            
             .nav a:hover {
                 color: #25D366;
             }
-            
             .nav a::after {
                 content: '';
                 position: absolute;
@@ -343,37 +363,28 @@
                 background-color: #25D366;
                 transition: width 0.3s;
             }
-            
             .nav a:hover::after {
                 width: 100%;
             }
-
-            /* Ajuste do carrossel */
             .carrossel {
                 max-width: 900px;
                 height: 380px;
                 margin: 20px auto;
             }
-
             .carrossel-slide img {
                 object-fit: contain;
                 background-color: #f5f5f5;
             }
-
-            /* Ajustes complementares */
             .container {
                 padding: 120px 5% 60px;
                 max-width: 900px;
             }
         }
-
-        /* Melhoria para telas muito grandes */
         @media (min-width: 1440px) {
             .carrossel {
                 max-width: 1000px;
                 height: 420px;
             }
-
             .container {
                 max-width: 1200px;
             }
@@ -381,7 +392,7 @@
     </style>
 </head>
 <body>
-    <!-- Cabeçalho -->
+    <!-- Cabeçalho Atualizado -->
     <div class="header">
         <img src="Logo-silvio-taxi.jpeg" alt="Silvio Táxi Executivo - Logo" width="150">
         <div class="nav">
@@ -389,6 +400,9 @@
             <a href="#veiculo">Veículo</a>
             <a href="#contato">Contato</a>
         </div>
+        <a href="https://wa.me/5511987572054" class="header-whatsapp" target="_blank">
+            WhatsApp 24h
+        </a>
     </div>
 
     <!-- Conteúdo principal -->
