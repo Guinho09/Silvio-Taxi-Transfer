@@ -1,11 +1,12 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
+
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Silvio Taxi Executivo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Silvio Taxi Executivo</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -377,130 +378,140 @@
                 max-width: 1200px;
             }
         }
-    </style>
+    
+.nav-box {
+    background-color: #222;
+    color: #fff;
+    padding: 12px 24px;
+    margin: 0 8px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+.nav-box:hover {
+    background-color: #444;
+    transform: translateY(-2px);
+}
+.nav-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 80px;
+}
+</style>
 </head>
 <body>
-    <!-- Cabeçalho Atualizado -->
-    <div class="header">
-        <img src="Logo-silvio-taxi.jpeg" alt="Silvio Táxi Executivo - Logo">
-        <div class="nav-container">
-            <div class="nav">
-                <a href="#servicos">Serviços</a>
-                <a href="#veiculo">Veículo</a>
-                <a href="#contato">Contato</a>
-            </div>
-            <a href="https://wa.me/5511987572054" class="header-whatsapp" target="_blank">
+<!-- Cabeçalho Atualizado -->
+<div class="header">
+<img alt="Silvio Táxi Executivo - Logo" src="Logo-silvio-taxi.jpeg"/>
+<div class="nav-container">
+<div class="nav">
+<a class="nav-box" href="#servicos">Serviços</a>
+<a class="nav-box" href="#veiculo">Veículo</a>
+<a class="nav-box" href="#contato">Contato</a>
+</div>
+<a class="header-whatsapp nav-box" href="https://wa.me/5511987572054" target="_blank">
                 WhatsApp 24h
             </a>
-        </div>
-    </div>
-
-    <!-- Conteúdo principal -->
-    <div class="container">
-        <!-- Seção Hero -->
-        <div class="hero">
-            <h1>Táxi de recepção rápida em São Paulo</h1>
-            <p>Oferecemos um serviço ágil e confiável para atender suas necessidades de transporte na capital paulista.</p>
-            <a href="https://wa.me/5511987572054" class="whatsapp-button" target="_blank">
+</div>
+</div>
+<!-- Conteúdo principal -->
+<div class="container">
+<!-- Seção Hero -->
+<div class="hero">
+<h1>Táxi de recepção rápida em São Paulo</h1>
+<p>Oferecemos um serviço ágil e confiável para atender suas necessidades de transporte na capital paulista.</p>
+<a class="whatsapp-button" href="https://wa.me/5511987572054" target="_blank">
                 Solicitar Orçamento
             </a>
-        </div>
-
-        <!-- Seção de Serviços -->
-        <div id="servicos" class="services">
-            <h2>Serviços</h2>
-            <ul>
-                <li><strong>Transfer em todos os Aeroportos de São Paulo</strong></li>
-                <li><strong>Transfer para outras cidades e estados</strong></li>
-                <li>Transporte executivo com conforto e segurança.</li>
-                <li>Wi-Fi a bordo para você ficar conectado.</li>
-                <li>Cortesia: água mineral, água com gás, suco de laranja e água de coco.</li>
-                <li>Bagageiro de teto para viagens com maior volume de bagagem.</li>
-                <li>Até duas cadeirinhas infantis gratuitas.</li>
-                <li>Atendimento personalizado 24 horas.</li>
-            </ul>
-        </div>
-
-        <!-- Botão de WhatsApp -->
-        <a href="https://wa.me/5511987572054" class="whatsapp-button" target="_blank">
+</div>
+<!-- Seção de Serviços -->
+<div class="services" id="servicos">
+<h2>Serviços</h2>
+<ul>
+<li><strong>Transfer em todos os Aeroportos de São Paulo</strong></li>
+<li><strong>Transfer para outras cidades e estados</strong></li>
+<li>Transporte executivo com conforto e segurança.</li>
+<li>Wi-Fi a bordo para você ficar conectado.</li>
+<li>Cortesia: água mineral, água com gás, suco de laranja e água de coco.</li>
+<li>Bagageiro de teto para viagens com maior volume de bagagem.</li>
+<li>Até duas cadeirinhas infantis gratuitas.</li>
+<li>Atendimento personalizado 24 horas.</li>
+</ul>
+</div>
+<!-- Botão de WhatsApp -->
+<a class="whatsapp-button" href="https://wa.me/5511987572054" target="_blank">
             Fale conosco no WhatsApp
         </a>
-
-        <!-- Seção Veículo com Carrossel -->
-        <div id="veiculo" class="vehicle">
-            <h2>Veículo</h2>
-            <div class="vehicle-content">
-                <!-- Carrossel -->
-                <div class="carrossel">
-                    <div class="carrossel-container" id="carrossel">
-                        <div class="carrossel-slide">
-                            <img src="foto-original-carro.jpg" alt="Chevrolet Spin 2024 - Vista original">
-                        </div>
-                        <div class="carrossel-slide">
-                            <img src="Bancos-pre-deitados-profissional.jpg" alt="Chevrolet Spin 2024 - Bancos pré-deitados">
-                        </div>
-                        <div class="carrossel-slide">
-                            <img src="Banco-deitado-profissional.jpg" alt="Chevrolet Spin 2024 - Banco deitado">
-                        </div>
-                        <div class="carrossel-slide">
-                            <img src="foto-opcoes.jpg" alt="Chevrolet Spin 2024 - Opções de configuração">
-                        </div>
-                    </div>
-                    
-                    <button class="carrossel-btn" id="prevBtn">&#10094;</button>
-                    <button class="carrossel-btn" id="nextBtn">&#10095;</button>
-                    
-                    <div class="carrossel-indicadores" id="indicadores">
-                        <span class="indicador ativo"></span>
-                        <span class="indicador"></span>
-                        <span class="indicador"></span>
-                        <span class="indicador"></span>
-                    </div>
-                </div>
-                
-                <!-- Texto SEMPRE ABAIXO DO CARROSSEL -->
-                <div class="vehicle-text">
-                    <p>
+<!-- Seção Veículo com Carrossel -->
+<div class="vehicle" id="veiculo">
+<h2>Veículo</h2>
+<div class="vehicle-content">
+<!-- Carrossel -->
+<div class="carrossel">
+<div class="carrossel-container" id="carrossel">
+<div class="carrossel-slide">
+<img alt="Chevrolet Spin 2024 - Vista original" src="foto-original-carro.jpg"/>
+</div>
+<div class="carrossel-slide">
+<img alt="Chevrolet Spin 2024 - Bancos pré-deitados" src="Bancos-pre-deitados-profissional.jpg"/>
+</div>
+<div class="carrossel-slide">
+<img alt="Chevrolet Spin 2024 - Banco deitado" src="Banco-deitado-profissional.jpg"/>
+</div>
+<div class="carrossel-slide">
+<img alt="Chevrolet Spin 2024 - Opções de configuração" src="foto-opcoes.jpg"/>
+</div>
+</div>
+<button class="carrossel-btn" id="prevBtn">❮</button>
+<button class="carrossel-btn" id="nextBtn">❯</button>
+<div class="carrossel-indicadores" id="indicadores">
+<span class="indicador ativo"></span>
+<span class="indicador"></span>
+<span class="indicador"></span>
+<span class="indicador"></span>
+</div>
+</div>
+<!-- Texto SEMPRE ABAIXO DO CARROSSEL -->
+<div class="vehicle-text">
+<p>
                         O Chevrolet Spin 2024 7 lugares (6 passageiros e 1 motorista) oferece o máximo em conforto e praticidade para quem precisa de um transporte espaçoso e eficiente. Com um design moderno e robusto, este veículo é perfeito para viagens executivas e longas distâncias. Além de contar com uma cabine ampla, que acomoda até 7 pessoas com conforto, o modelo também possui Wi-Fi a bordo, garantindo conectividade durante todo o trajeto. Equipado com tecnologia de ponta e recursos de segurança, a Spin 2024 oferece uma experiência de viagem tranquila e sem preocupações, tornando-a a escolha ideal para seus deslocamentos entre o aeroporto e outras cidades.
                     </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Seção Sobre Nós -->
-        <div id="sobre" class="about">
-            <h2>Sobre Nós</h2>
-            <p>
+</div>
+</div>
+</div>
+<!-- Seção Sobre Nós -->
+<div class="about" id="sobre">
+<h2>Sobre Nós</h2>
+<p>
                 A Silvio Taxi começou sua jornada em 2022 com o objetivo de oferecer um atendimento de excelência, sempre focado na segurança e pontualidade. Desde então, nos destacamos pela atenção ao cliente, garantindo a sua satisfação em cada viagem. Com mais de 725 corridas realizadas e mais de 510 clientes atendidos, nosso compromisso é proporcionar um serviço confiável, confortável e personalizado, sempre com a qualidade que você merece.
             </p>
-        </div>
-
-        <!-- Formulário de Contato -->
-        <div id="contato" class="contact-form">
-            <h2>Entre em Contato</h2>
-            <form action="#" method="post">
-                <input type="text" name="name" placeholder="Seu nome" required>
-                <input type="email" name="email" placeholder="Seu e-mail" required>
-                <input type="tel" name="phone" placeholder="Seu telefone">
-                <textarea name="message" placeholder="Sua mensagem" rows="5" required></textarea>
-                <button type="submit">Enviar Mensagem</button>
-            </form>
-        </div>
-
-        <!-- Seção de Contato -->
-        <h2>Contato</h2>
-        <div class="contact">
-            <p><strong>Telefone:</strong> +55 11 98757-2054</p>
-            <p><strong>E-mail:</strong> Silviotx61@gmail.com</p>
-        </div>
-    </div>
-
-    <!-- Rodapé -->
-    <div class="footer">
+</div>
+<!-- Formulário de Contato -->
+<div class="contact-form" id="contato">
+<h2>Entre em Contato</h2>
+<form action="#" method="post">
+<input name="name" placeholder="Seu nome" required="" type="text"/>
+<input name="email" placeholder="Seu e-mail" required="" type="email"/>
+<input name="phone" placeholder="Seu telefone" type="tel"/>
+<textarea name="message" placeholder="Sua mensagem" required="" rows="5"></textarea>
+<button type="submit">Enviar Mensagem</button>
+</form>
+</div>
+<!-- Seção de Contato -->
+<h2>Contato</h2>
+<div class="contact">
+<p><strong>Telefone:</strong> +55 11 98757-2054</p>
+<p><strong>E-mail:</strong> Silviotx61@gmail.com</p>
+</div>
+</div>
+<!-- Rodapé -->
+<div class="footer">
         © <span id="current-year">2025</span> Silvio Táxi. Todos os direitos reservados.
     </div>
-
-    <script>
+<script>
         // Carrossel automático e por controles
         document.addEventListener('DOMContentLoaded', function() {
             const carrossel = document.getElementById('carrossel');
