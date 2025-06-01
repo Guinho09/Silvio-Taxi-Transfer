@@ -1,590 +1,380 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Silvio Taxi Executivo</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-<style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fff;
-            color: #333;
-            text-align: center;
-        }
-        .header {
-            background-color: #000;
-            color: #fff;
-            padding: 10px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-sizing: border-box;
-        }
-        .header img {
-            max-width: 110px;
-            height: auto;
-        }
-        .nav-container {
-            display: flex;
-            width: 100%;
-            justify-content: center;
-            position: relative;
-            margin-right: 120px; /* Espaço para o botão WhatsApp */
-        }
-        .nav {
-            display: flex;
-            gap: 30px;
-        }
-        .nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s;
-            white-space: nowrap;
-        }
-        .nav a:hover {
-            color: #25D366;
-        }
-        .header-whatsapp {
-            background-color: #25D366;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: background-color 0.3s;
-            position: absolute;
-            right: 5%;
-        }
-        .header-whatsapp:hover {
-            background-color: #128C7E;
-        }
-        .header-whatsapp::before {
-            content: "";
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-6.29-3.43c.545 1.422 1.69 2.595 3.151 2.934.197.05.394.074.57.074.347 0 .669-.05.966-.149 1.423-.396 2.41-1.537 2.647-2.74.033-.174.033-.347.033-.521 0-.396-.074-.768-.223-1.114-.446-1.151-1.437-1.933-2.56-2.149a3.71 3.71 0 0 0-.892-.074c-.347 0-.669.05-.966.149-1.423.396-2.41 1.537-2.646 2.74-.025.174-.05.347-.05.521 0 .397.074.768.224 1.114"/></svg>');
-            background-size: contain;
-        }
-        .container {
-            padding: 100px 20px 60px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .contact {
-            margin-top: 20px;
-            font-size: 14px;
-        }
-        .footer {
-            background-color: #000;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            font-size: 12px;
-            margin-top: 40px;
-        }
-        .whatsapp-button {
-            background-color: #25D366;
-            color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 20px;
-            font-size: 18px;
-        }
-        .whatsapp-button:hover {
-            background-color: #128C7E;
-        }
-        .services, .about, .vehicle, .contact-form {
-            scroll-margin-top: 100px;
-        }
-        .services ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .services ul li {
-            background-color: #f5f5f5;
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .about p, .vehicle p {
-            background-color: #f5f5f5;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            line-height: 1.6;
-        }
-        .contact-form {
-            margin-top: 30px;
-            text-align: left;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .contact-form button {
-            background-color: #000;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .contact-form button:hover {
-            background-color: #333;
-        }
-        .vehicle-content {
-            display: block;
-            width: 100%;
-        }
-        .vehicle-text {
-            margin-top: 25px;
-        }
-        .hero {
-            background-image: url('caminho-da-imagem-spin.jpg');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            padding: 60px 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-        .hero h1, .hero p, .hero .whatsapp-button {
-            position: relative;
-            z-index: 2;
-        }
-        .hero h1 {
-            font-family: 'Georgia', serif;
-            font-size: 36px;
-            margin: 0;
-        }
-        .hero p {
-            font-size: 18px;
-            margin: 10px 0 20px;
-        }
-        .hero .whatsapp-button {
-            background-color: #25D366;
-            color: #fff;
-            padding: 15px 30px;
-            font-size: 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        .hero .whatsapp-button:hover {
-            background-color: #128C7E;
-        }
-        .carrossel {
-            position: relative;
-            max-width: 100%;
-            margin: 20px 0;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        .carrossel-container {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            height: 300px;
-        }
-        .carrossel-slide {
-            min-width: 100%;
-            height: 100%;
-        }
-        .carrossel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        .carrossel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0,0,0,0.5);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            z-index: 10;
-            border-radius: 50%;
-            font-size: 18px;
-            transition: background 0.3s;
-        }
-        .carrossel-btn:hover {
-            background-color: rgba(0,0,0,0.8);
-        }
-        #prevBtn {
-            left: 10px;
-        }
-        #nextBtn {
-            right: 10px;
-        }
-        .carrossel-indicadores {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-        .indicador {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #ccc;
-            margin: 0 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .indicador.ativo {
-            background-color: #25D366;
-        }
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                padding: 10px;
-                height: auto;
-                position: relative;
-            }
-            .header img {
-                max-width: 120px;
-                margin-bottom: 10px;
-            }
-            .nav-container {
-                flex-direction: column;
-                align-items: center;
-                margin-right: 0;
-            }
-            .nav {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 8px;
-                margin-bottom: 10px;
-            }
-            .nav a {
-                font-size: 16px;
-                padding: 8px 12px;
-                background-color: rgba(0,0,0,0.2);
-                border-radius: 4px;
-            }
-            .header-whatsapp {
-                position: relative;
-                right: auto;
-                margin-top: 10px;
-            }
-            .container {
-                padding-top: 20px;
-            }
-            .hero h1 {
-                font-size: 28px;
-            }
-            .hero p {
-                font-size: 16px;
-            }
-            .hero .whatsapp-button {
-                padding: 10px 20px;
-                font-size: 16px;
-            }
-            .carrossel-container {
-                height: 250px;
-            }
-            .carrossel-btn {
-                padding: 8px 12px;
-                font-size: 16px;
-            }
-        }
-        @media (max-width: 480px) {
-            .nav a {
-                font-size: 15px;
-                padding: 7px 10px;
-            }
-            .carrossel-container {
-                height: 200px;
-            }
-        }
-        @media (min-width: 1024px) {
-            .header {
-                padding: 12px 5%;
-            }
-            .header img {
-                max-width: 110px;
-            }
-            .nav a {
-                font-size: 16px;
-                position: relative;
-            }
-            .nav a::after {
-                content: '';
-                position: absolute;
-                width: 0;
-                height: 2px;
-                bottom: 0;
-                left: 0;
-                background-color: #25D366;
-                transition: width 0.3s;
-            }
-            .nav a:hover::after {
-                width: 100%;
-            }
-            .carrossel {
-                max-width: 900px;
-                height: 380px;
-                margin: 20px auto;
-            }
-            .carrossel-slide img {
-                object-fit: contain;
-                background-color: #f5f5f5;
-            }
-            .container {
-                padding: 120px 5% 60px;
-                max-width: 900px;
-            }
-        }
-        @media (min-width: 1440px) {
-            .carrossel {
-                max-width: 1000px;
-                height: 420px;
-            }
-            .container {
-                max-width: 1200px;
-            }
-        }
-    
-.nav-box {
-    background-color: #222;
-    color: #fff;
-    padding: 12px 24px;
-    margin: 0 8px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 500;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-.nav-box:hover {
-    background-color: #444;
-    transform: translateY(-2px);
-}
-.nav-container {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 80px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transporte Executivo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px;
+    }
+
+    .content-box {
+      display: flex;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      max-width: 1200px;
+      width: 100%;
+      min-height: 500px;
+    }
+
+    .text-section {
+      flex: 1;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .text-section h1 {
+      color: #111;
+      font-size: 36px;
+      margin: 0;
+    }
+
+    .text-section h2 {
+      color: #000;
+      font-size: 22px;
+      margin: 10px 0 0 0;
+      font-weight: 600;
+    }
+
+    .text-section p {
+      color: #666;
+      margin: 15px 0 30px 0;
+      font-size: 16px;
+    }
+
+    .text-section a {
+      background-color: #ffc107;
+      color: #fff;
+      padding: 14px 28px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      width: fit-content;
+    }
+
+    .image-section {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      padding: 20px;
+    }
+
+    .image-section img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 10px;
+      border: 4px solid #ffc107;
+    }
+
+    .info-bar {
+      background: linear-gradient(to bottom, #ffc107, #c98d00);
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .service-box {
+      background: #111;
+      color: white;
+      border: 3px solid #ffc107;
+      border-radius: 15px;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 500;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .service-box span {
+      color: #ffc107;
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .vehicle-section {
+      background: #111;
+      color: #fff;
+      padding: 60px 20px;
+    }
+
+    .vehicle-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 40px;
+    }
+
+    .vehicle-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .vehicle-text h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .vehicle-text ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px 0;
+    }
+
+    .vehicle-text li {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .vehicle-text li::before {
+      content: '\2713';
+      color: #ffc107;
+      margin-right: 10px;
+    }
+
+    .vehicle-text p {
+      font-size: 16px;
+    }
+
+    .vehicle-gallery {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      min-width: 300px;
+    }
+
+    .vehicle-gallery img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .about-section {
+      background: #fff;
+      padding: 80px 20px;
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .about-section p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .about-section a {
+      background-color: #ffc107;
+      color: #fff;
+      padding: 14px 28px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .content-box {
+        flex-direction: column;
+      }
+      .text-section, .image-section {
+        padding: 20px;
+        text-align: center;
+      }
+      .text-section a {
+        margin: 0 auto;
+      }
+      .vehicle-container {
+        flex-direction: column;
+      }
+    }
+  
+.sobre-nos-section {
+  background-color: #fff;
+  padding: 80px 20px;
 }
 
-.caixa-amarela-premium {
-    background-color: #FFEB3B;
-    color: #111;
-    padding: 50px 30px;
-    margin: 60px auto;
-    max-width: 900px;
-    border-radius: 16px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
+.sobre-nos-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.caixa-amarela-premium h1, .caixa-amarela-premium p {
-    color: #111;
+
+.sobre-nos-box {
+  background-color: #fff;
+  padding: 60px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  max-width: 800px;
+  text-align: center;
+}
+
+.sobre-nos-box p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+.sobre-nos-box a {
+  background-color: #ffc107;
+  color: #fff;
+  padding: 14px 28px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+
+.contato-section {
+  background-color: #999;
+  text-align: center;
+  color: #fff;
+  padding: 60px 20px;
+}
+
+.contato-section h2 {
+  font-size: 32px;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.contato-section .tel {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.contato-section .info,
+.contato-section .cnpj {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.instagram-icon {
+  width: 40px;
+  margin-top: 20px;
+  transition: transform 0.3s ease;
+}
+
+.instagram-icon:hover {
+  transform: scale(1.1);
 }
 </style>
 </head>
 <body>
-<!-- Cabeçalho Atualizado -->
-<div class="header">
-<img alt="Silvio Táxi Executivo - Logo" src="Logo-silvio-taxi.jpeg"/>
-<div class="nav-container">
-<div class="nav">
-<a class="nav-box" href="#servicos">Serviços</a>
-<a class="nav-box" href="#veiculo">Veículo</a>
-<a class="nav-box" href="#contato">Contato</a>
-</div>
-<a class="header-whatsapp nav-box" href="https://wa.me/5511987572054" target="_blank">
-                WhatsApp 24h
-            </a>
-</div>
-</div>
-<!-- Conteúdo principal -->
-<div class="container caixa-amarela-premium">
-<!-- Seção Hero -->
-<div class="hero">
-<h1>Táxi de recepção rápida em São Paulo</h1>
-<p>Oferecemos um serviço ágil e confiável para atender suas necessidades de transporte na capital paulista.</p>
-<a class="whatsapp-button" href="https://wa.me/5511987572054" target="_blank">
-                Solicitar Orçamento
-            </a>
-</div>
-<!-- Seção de Serviços -->
-<div class="services" id="servicos">
-<h2>Serviços</h2>
-<ul>
-<li><strong>Transfer em todos os Aeroportos de São Paulo</strong></li>
-<li><strong>Transfer para outras cidades e estados</strong></li>
-<li>Transporte executivo com conforto e segurança.</li>
-<li>Wi-Fi a bordo para você ficar conectado.</li>
-<li>Cortesia: água mineral, água com gás, suco de laranja e água de coco.</li>
-<li>Bagageiro de teto para viagens com maior volume de bagagem.</li>
-<li>Até duas cadeirinhas infantis gratuitas.</li>
-<li>Atendimento personalizado 24 horas.</li>
-</ul>
-</div>
-<!-- Botão de WhatsApp -->
-<a class="whatsapp-button" href="https://wa.me/5511987572054" target="_blank">
-            Fale conosco no WhatsApp
-        </a>
-<!-- Seção Veículo com Carrossel -->
-<div class="vehicle" id="veiculo">
-<h2>Veículo</h2>
-<div class="vehicle-content">
-<!-- Carrossel -->
-<div class="carrossel">
-<div class="carrossel-container" id="carrossel">
-<div class="carrossel-slide">
-<img alt="Chevrolet Spin 2024 - Vista original" src="foto-original-carro.jpg"/>
-</div>
-<div class="carrossel-slide">
-<img alt="Chevrolet Spin 2024 - Bancos pré-deitados" src="Bancos-pre-deitados-profissional.jpg"/>
-</div>
-<div class="carrossel-slide">
-<img alt="Chevrolet Spin 2024 - Banco deitado" src="Banco-deitado-profissional.jpg"/>
-</div>
-<div class="carrossel-slide">
-<img alt="Chevrolet Spin 2024 - Opções de configuração" src="foto-opcoes.jpg"/>
-</div>
-</div>
-<button class="carrossel-btn" id="prevBtn">❮</button>
-<button class="carrossel-btn" id="nextBtn">❯</button>
-<div class="carrossel-indicadores" id="indicadores">
-<span class="indicador ativo"></span>
-<span class="indicador"></span>
-<span class="indicador"></span>
-<span class="indicador"></span>
-</div>
-</div>
-<!-- Texto SEMPRE ABAIXO DO CARROSSEL -->
-<div class="vehicle-text">
-<p>
-                        O Chevrolet Spin 2024 7 lugares (6 passageiros e 1 motorista) oferece o máximo em conforto e praticidade para quem precisa de um transporte espaçoso e eficiente. Com um design moderno e robusto, este veículo é perfeito para viagens executivas e longas distâncias. Além de contar com uma cabine ampla, que acomoda até 7 pessoas com conforto, o modelo também possui Wi-Fi a bordo, garantindo conectividade durante todo o trajeto. Equipado com tecnologia de ponta e recursos de segurança, a Spin 2024 oferece uma experiência de viagem tranquila e sem preocupações, tornando-a a escolha ideal para seus deslocamentos entre o aeroporto e outras cidades.
-                    </p>
-</div>
-</div>
-</div>
-<!-- Seção Sobre Nós -->
-<div class="about" id="sobre">
-<h2>Sobre Nós</h2>
-<p>
-                A Silvio Taxi começou sua jornada em 2022 com o objetivo de oferecer um atendimento de excelência, sempre focado na segurança e pontualidade. Desde então, nos destacamos pela atenção ao cliente, garantindo a sua satisfação em cada viagem. Com mais de 725 corridas realizadas e mais de 510 clientes atendidos, nosso compromisso é proporcionar um serviço confiável, confortável e personalizado, sempre com a qualidade que você merece.
-            </p>
-</div>
-<!-- Formulário de Contato -->
-<div class="contact-form" id="contato">
-<h2>Entre em Contato</h2>
-<form action="#" method="post">
-<input name="name" placeholder="Seu nome" required="" type="text"/>
-<input name="email" placeholder="Seu e-mail" required="" type="email"/>
-<input name="phone" placeholder="Seu telefone" type="tel"/>
-<textarea name="message" placeholder="Sua mensagem" required="" rows="5"></textarea>
-<button type="submit">Enviar Mensagem</button>
-</form>
-</div>
-<!-- Seção de Contato -->
-<h2>Contato</h2>
-<div class="contact">
-<p><strong>Telefone:</strong> +55 11 98757-2054</p>
-<p><strong>E-mail:</strong> Silviotx61@gmail.com</p>
-</div>
-</div>
-<!-- Rodapé -->
-<div class="footer">
-        © <span id="current-year">2025</span> Silvio Táxi. Todos os direitos reservados.
+  <div class="container">
+    <div class="content-box">
+      <div class="text-section">
+        <img src="logo.png" alt="Logo" style="max-width: 150px; margin-bottom: 20px;">
+        <h1>Transporte de alta qualidade</h1>
+        <h2>Motorista renomado no mercado</h2>
+        <p>Sua viagem com segurança e conforto</p>
+        <a href="#" target="_blank">Reservar sua Viagem</a>
+      </div>
+      <div class="image-section">
+        <img src="carro.png" alt="Carro de Luxo">
+      </div>
     </div>
-<script>
-        // Carrossel automático e por controles
-        document.addEventListener('DOMContentLoaded', function() {
-            const carrossel = document.getElementById('carrossel');
-            const slides = document.querySelectorAll('.carrossel-slide');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const indicadores = document.querySelectorAll('.indicador');
-            
-            let currentIndex = 0;
-            const totalSlides = slides.length;
-            
-            function updateCarrossel() {
-                carrossel.style.transform = translateX(-${currentIndex * 100}%);
-                
-                // Atualiza indicadores
-                indicadores.forEach((ind, index) => {
-                    ind.classList.toggle('ativo', index === currentIndex);
-                });
-            }
-            
-            function nextSlide() {
-                currentIndex = (currentIndex + 1) % totalSlides;
-                updateCarrossel();
-            }
-            
-            function prevSlide() {
-                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-                updateCarrossel();
-            }
-            
-            // Controles
-            nextBtn.addEventListener('click', nextSlide);
-            prevBtn.addEventListener('click', prevSlide);
-            
-            // Indicadores
-            indicadores.forEach((ind, index) => {
-                ind.addEventListener('click', () => {
-                    currentIndex = index;
-                    updateCarrossel();
-                });
-            });
-            
-            // Auto-play (15 segundos)
-            let intervalo = setInterval(nextSlide, 15000);
-            
-            // Pausa ao passar o mouse
-            const carrosselContainer = document.querySelector('.carrossel');
-            carrosselContainer.addEventListener('mouseenter', () => {
-                clearInterval(intervalo);
-            });
-            
-            carrosselContainer.addEventListener('mouseleave', () => {
-                intervalo = setInterval(nextSlide, 15000);
-            });
+  </div>
 
-            // Atualiza o ano automaticamente
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-        });
-    </script>
+  <div class="info-bar">
+    Atendemos exclusivamente a Região Metropolitana de São Paulo, incluindo os aeroportos de Campinas (Viracopos), Guarulhos e Congonhas. Cobrimos também os principais eventos em locais como Allianz Parque, Morumbis e Espaço Unimed, além de todos os litorais de SP (consulte disponibilidade).<br><br>
+    Nossa exclusividade para trafegar em corredores de ônibus e em horários alternativos garante agilidade e pontualidade em seus deslocamentos.
+  </div>
+
+  <div class="service-grid">
+    <div class="service-box"><span>Transporte</span>Empresarial</div>
+    <div class="service-box"><span>Transfer</span>Em Geral</div>
+    <div class="service-box"><span>Transporte</span>Litorâneo</div>
+    <div class="service-box"><span>CityTour</span>Privativo</div>
+    <div class="service-box"><span>Transporte</span>Aeroportos</div>
+    <div class="service-box"><span>Motorista</span>Licenciado</div>
+    <div class="service-box"><span>Transporte</span>de carga leve</div>
+    <div class="service-box"><span>Atendimento</span>24 Horas</div>
+  </div>
+
+  <div class="vehicle-section">
+    <div class="vehicle-container">
+      <div class="vehicle-text">
+        <h2>Nosso veículo:</h2>
+        <ul>
+          <li>7 lugares (6 passageiros e 1 motorista)</li>
+          <li>Bagageiros de teto</li>
+          <li>Cortesia a bordo</li>
+          <li>Conforto e segurança</li>
+        </ul>
+        <p>Para o cliente exigente que busca conforto, segurança e privacidade em cada viagem.</p>
+      </div>
+      <div class="vehicle-gallery">
+        <img src="veiculo1.jpg" alt="Veículo 1">
+        <img src="veiculo2.jpg" alt="Veículo 2">
+        <img src="veiculo3.jpg" alt="Veículo 3">
+        <img src="veiculo4.jpg" alt="Veículo 4">
+        <img src="veiculo5.jpg" alt="Veículo 5">
+        <img src="veiculo6.jpg" alt="Veículo 6">
+      </div>
+    </div>
+  </div>
+
+  
+<div class="sobre-nos-section">
+  <div class="sobre-nos-container">
+    <div class="sobre-nos-box">
+      <p>
+        A Silvio Taxi começou sua jornada em 2022 com o objetivo de oferecer um atendimento de excelência,
+        sempre focado na segurança e pontualidade. Desde então, nos destacamos pela atenção ao cliente,
+        garantindo a sua satisfação em cada viagem. Com mais de 725 corridas realizadas e mais de 510 clientes atendidos,
+        nosso compromisso é proporcionar um serviço confiável, confortável e personalizado, sempre com a qualidade que você merece.
+      </p>
+      <a href="#">Reservar sua Viagem</a>
+    </div>
+  </div>
+</div>
+
+<div class="contato-section">
+  <h2>Contato</h2>
+  <p class="tel">+55 (11) 98757-2054</p>
+  <p class="info">Tenha a melhor experiência de transporte com segurança e conforto.</p>
+  <p class="cnpj">CNPJ: 59.101.205/0001-06</p>
+  <a href="#" target="_blank">
+    <img src="a83b3298-6d48-47f7-bd5c-9178b4ebf97e.png" alt="Instagram" class="instagram-icon">
+  </a>
+</div>
+
 </body>
 </html>
