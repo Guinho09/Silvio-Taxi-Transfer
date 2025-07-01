@@ -3,7 +3,7 @@
 
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
+   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- SEO: Título e Descrição -->
@@ -13,10 +13,15 @@
   <!-- Canonical: versão oficial da URL -->
   <link rel="canonical" href="https://sttaxi.com.br/" />
 
-  <!-- Redirecionamento para a versão canônica -->
+  <!-- Redirecionamento seguro para HTTPS apenas no domínio principal -->
   <script>
-    if (window.location.href !== "https://sttaxi.com.br/") {
-      window.location.href = "https://sttaxi.com.br/";
+    if (
+      location.hostname === "sttaxi.com.br" ||
+      location.hostname === "www.sttaxi.com.br"
+    ) {
+      if (location.protocol !== "https:") {
+        location.href = "https://sttaxi.com.br" + location.pathname;
+      }
     }
   </script>
 
