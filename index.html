@@ -330,30 +330,14 @@
     Nossa exclusividade para trafegar em corredores de ônibus e em horários alternativos garante agilidade e pontualidade em seus deslocamentos.
   </div>
 <div class="service-grid">
-  <div class="service-box" style="--bg:url('guarulhos.jpg')">
-    <span>Aeroporto</span> de Guarulhos
-  </div>
-  <div class="service-box" style="--bg:url('congonhas.jpg')">
-    <span>Aeroporto</span> de Congonhas
-  </div>
-  <div class="service-box" style="--bg:url('viracopos.jpg')">
-    <span>Aeroporto</span> de Viracopos
-  </div>
-  <div class="service-box" style="--bg:url('campos-jordao.jpg')">
-    Campos do Jordão
-  </div>
-  <div class="service-box" style="--bg:url('praias-sp.jpg')">
-    Praias litorais SP
-  </div>
-  <div class="service-box" style="--bg:url('citytour.jpg')">
-    Citytour
-  </div>
-  <div class="service-box" style="--bg:url('eventos-sp.jpg')">
-    Eventos em SP
-  </div>
-  <div class="service-box" style="--bg:url('parques-tematicos.jpg')">
-    Parques temáticos
-  </div>
+<div class="service-box" style="background: linear-gradient(rgba(0,0,0,.18), rgba(0,0,0,.18)), url('guarulhos.jpg') center/cover no-repeat;"><span>Aeroporto</span> de Guarulhos</div>
+  <div class="service-box" style="background: linear-gradient(rgba(0,0,0,.18), rgba(0,0,0,.18)), url('congonhas.jpg') center/cover no-repeat;"><span>Aeroporto</span> de Congonhas</div>
+  <div class="service-box" style="background: linear-gradient(rgba(0,0,0,.18), rgba(0,0,0,.18)), url('viracopos.jpg') center/cover no-repeat;"><span>Aeroporto</span> de Viracopos</div>
+  <div class="service-box" style="background: linear-gradient(rgba(0,0,0,.18), rgba(0,0,0,.18)), url('campos-jordao.jpg') center/cover no-repeat;">Campos do Jordão</div>
+  <div class="service-box" style="background: linear-gradient(rgba(0,0,0,.18), rgba(0,0,0,.18)), url('praias-sp.jpg') center/cover no-repeat;">Praias litorais SP</div>
+  <div class="service-box" style="background: linear-gradient(rgba(0,0,0,.18), rgba(0,0,0,.18)), url('citytour.jpg') center/cover no-repeat;">Citytour</div>
+  <div class="service-box" style="background: linear-gradient(rgba(0,0,0,.18), rgba(0,0,0,.18)), url('eventos-sp.jpg') center/cover no-repeat;">Eventos em SP</div>
+  <div class="service-box" style="background: linear-gradient(rgba(0,0,0,.18), rgba(0,0,0,.18)), url('parques-tematicos.jpg') center/cover no-repeat;">Parques temáticos</div>
 </div>
 <div class="vehicle-section">
 <div class="vehicle-container">
@@ -453,32 +437,7 @@
     width: 30px;
     height: 30px;
   }
-/* === Marca d'água nos cards (escopo apenas da .service-grid) === */
-.service-grid .service-box{
-  position: relative;
-  overflow: hidden;
-}
-.service-grid .service-box::before{
-  content: "";
-  position: absolute; inset: 0;
-  background-image: var(--bg);
-  background-size: cover;
-  background-position: center;
-  filter: grayscale(40%) opacity(.20);
-  transform: scale(1.12);
-  z-index: 0;
-}
-.service-grid .service-box::after{
-  content: "";
-  position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.30));
-  z-index: 1;
-}
-.service-grid .service-box span, 
-.service-grid .service-box { 
-  position: relative; 
-  z-index: 2; 
-}</style>
+</style>
 
 </body>
 </html>
