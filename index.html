@@ -27,6 +27,63 @@
 
   <!-- Link do seu CSS -->
   <link rel="stylesheet" href="style.css" />
+<style>
+/* === Cards com marca d’água === */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+  margin-top: 10px;
+}
+@media (max-width:1100px){ .services-grid{ grid-template-columns:repeat(3,1fr);} }
+@media (max-width:780px){  .services-grid{ grid-template-columns:repeat(2,1fr);} }
+@media (max-width:520px){  .services-grid{ grid-template-columns:1fr; } }
+
+.service-card{
+  position:relative;
+  min-height:140px;
+  background:#111;
+  border:3px solid #F2B705;
+  border-radius:18px;
+  padding:24px 22px;
+  box-shadow:0 8px 22px rgba(0,0,0,.25);
+  overflow:hidden;
+  isolation:isolate;
+}
+
+.service-card::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:var(--bg);
+  background-size:cover;
+  background-position:center;
+  filter:grayscale(40%) opacity(.18);
+  transform:scale(1.12);
+  z-index:-1;
+}
+.service-card::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.35));
+  z-index:-1;
+}
+
+.service-card h3{
+  margin:0 0 6px 0;
+  color:#FFC107;
+  font-weight:800;
+  font-size:1.06rem;
+  letter-spacing:.3px;
+}
+
+.service-card p{
+  margin:0;
+  color:#fff;
+  opacity:.95;
+  line-height:1.35;
+  font-size:.98rem;
+}
+</style>
 </head>
 <style>
     body {
@@ -309,7 +366,64 @@
 }
 
 </style>
-<meta content="Serviço profissional de transfer para os aeroportos de Guarulhos e Congonhas. ST Táxi: conforto, pontualidade e segurança no transporte executivo em SP." name="description"/></head>
+<meta content="Serviço profissional de transfer para os aeroportos de Guarulhos e Congonhas. ST Táxi: conforto, pontualidade e segurança no transporte executivo em SP." name="description"/><style>
+/* === Cards com marca d’água === */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+  margin-top: 10px;
+}
+@media (max-width:1100px){ .services-grid{ grid-template-columns:repeat(3,1fr);} }
+@media (max-width:780px){  .services-grid{ grid-template-columns:repeat(2,1fr);} }
+@media (max-width:520px){  .services-grid{ grid-template-columns:1fr; } }
+
+.service-card{
+  position:relative;
+  min-height:140px;
+  background:#111;
+  border:3px solid #F2B705;
+  border-radius:18px;
+  padding:24px 22px;
+  box-shadow:0 8px 22px rgba(0,0,0,.25);
+  overflow:hidden;
+  isolation:isolate;
+}
+
+.service-card::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:var(--bg);
+  background-size:cover;
+  background-position:center;
+  filter:grayscale(40%) opacity(.18);
+  transform:scale(1.12);
+  z-index:-1;
+}
+.service-card::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.35));
+  z-index:-1;
+}
+
+.service-card h3{
+  margin:0 0 6px 0;
+  color:#FFC107;
+  font-weight:800;
+  font-size:1.06rem;
+  letter-spacing:.3px;
+}
+
+.service-card p{
+  margin:0;
+  color:#fff;
+  opacity:.95;
+  line-height:1.35;
+  font-size:.98rem;
+}
+</style>
+</head>
 <body>
 <div class="container">
 <div class="content-box">
@@ -329,98 +443,40 @@
     Atendemos exclusivamente a Região Metropolitana de São Paulo, incluindo os aeroportos de Campinas (Viracopos), Guarulhos e Congonhas. Cobrimos também os principais eventos em locais como Allianz Parque, Morumbis e Espaço Unimed, Campos do Jordão, além de todas as praias do litoral de SP (consulte disponibilidade).<br/><br/>
     Nossa exclusividade para trafegar em corredores de ônibus e em horários alternativos garante agilidade e pontualidade em seus deslocamentos.
   </div>
-<div class="service-grid">
-<div class="service-box"><span>Transporte</span>Empresarial</div>
-<div class="service-box"><span>Transfer</span>Em Geral</div>
-<div class="service-box"><span>Transporte</span>Litorâneo</div>
-<div class="service-box"><span>CityTour</span>Privativo</div>
-<div class="service-box"><span>Transporte</span>Aeroportos</div>
-<div class="service-box"><span>Motorista</span>Licenciado</div>
-<div class="service-box"><span>Transporte</span>Parques Temático</div>
-<div class="service-box"><span>Atendimento</span>24 Horas</div>
-</div>
-<div class="vehicle-section">
-<div class="vehicle-container">
-<div class="vehicle-text">
-<h2>Nosso veículo:</h2>
-<ul>
-<li>Chevrolet Spin 7 lugares (6 passageiros e 1 motorista)</li>
-<li>Bagageiros de teto</li>
-<li>Serviço de cortesia a bordo</li>
-<li>Cadeirinha Infantil</li>
-</ul>
-<p>Para o cliente exigente que busca conforto, segurança e privacidade em cada viagem.</p>
-</div>
-<div class="vehicle-gallery">
-<img alt="Veículo 1" src="veiculo1.jpg"/>
-<img alt="Veículo 2" src="veiculo2.jpg"/>
-<img alt="Veículo 3" src="veiculo3.jpg"/>
-<img alt="Veículo 4" src="veiculo4.jpg"/>
-</div>
-</div>
-</div>
-<div class="sobre-nos-section">
-<div class="sobre-nos-container">
-<div class="sobre-nos-box">
-<p>
-        A Silvio Taxi começou sua jornada em 2022 com o objetivo de oferecer um atendimento de excelência,
-        sempre focado na segurança e pontualidade. Desde então, nos destacamos pela atenção ao cliente,
-        garantindo a sua satisfação em cada viagem. Nosso compromisso é proporcionar um serviço confiável, confortável e personalizado, sempre com a qualidade que você merece.
-      </p>
-<a href="https://wa.me/5511987572054" target="_blank">Reservar Viagem</a>
-</div>
-</div>
-</div>
-<div class="contato-section">
-<h2>Contato</h2>
-<p class="tel">+55 (11) 98757-2054</p>
-<p class="info">Tenha a melhor experiência de transporte com segurança e conforto.</p>
-<p class="cnpj">CNPJ: 59.101.205/0001-06</p>
-<a href="#" target="_blank">
-</a>
-</div>
-
-<!-- Botão flutuante WhatsApp -->
-<a href="https://wa.me/5511987572054" target="_blank" id="whatsapp-float">
-  <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp" />
-</a>
-
-<style>
-  #whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25d366;
-    color: #fff;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 30px;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-  }
-  #whatsapp-float img {
-    width: 30px;
-    height: 30px;
-  }
-</style>
-
-
-<!-- Botão flutuante Instagram -->
-<a href="https://www.instagram.com/sttaxi_transfer" target="_blank" id="instagram-float">
-  <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new--v1.png" alt="Instagram" />
-</a>
-
-<style>
-  #instagram-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 90px; /* acima do botão do WhatsApp (60px + 10px de espaço) */
+<div class="services-grid">
+  <article class="service-card" style="--bg:url('img/cards/guarulhos.jpg')">
+    <h3>Aeroporto de Guarulhos</h3>
+    <p>Traslado 24h · Ida e volta · Executivos</p>
+  </article>
+  <article class="service-card" style="--bg:url('img/cards/congonhas.jpg')">
+    <h3>Aeroporto de Congonhas</h3>
+    <p>Desembarque assistido · Espera inclusa</p>
+  </article>
+  <article class="service-card" style="--bg:url('img/cards/viracopos.jpg')">
+    <h3>Aeroporto de Viracopos</h3>
+    <p>Campinas e região · Viagens programadas</p>
+  </article>
+  <article class="service-card" style="--bg:url('img/cards/campos-jordao.jpg')">
+    <h3>Campos do Jordão</h3>
+    <p>Bate‑volta · Pernoite · Roteiro sob medida</p>
+  </article>
+  <article class="service-card" style="--bg:url('img/cards/praias-sp.jpg')">
+    <h3>Praias litorais SP</h3>
+    <p>Santos · Guarujá · Riviera · Ilhabela</p>
+  </article>
+  <article class="service-card" style="--bg:url('img/cards/citytour.jpg')">
+    <h3>Citytour</h3>
+    <p>Tour privativo · PT/EN/ES · Paradas fotográficas</p>
+  </article>
+  <article class="service-card" style="--bg:url('img/cards/eventos-sp.jpg')">
+    <h3>Eventos em SP</h3>
+    <p>Feiras · Shows · Congressos</p>
+  </article>
+  <article class="service-card" style="--bg:url('img/cards/parques-tematicos.jpg')">
+    <h3>Parques temáticos</h3>
+    <p>Hopi Hari · Wet’n Wild · Beto Carrero*</p>
+  </article>
+</div>tão do WhatsApp (60px + 10px de espaço) */
     right: 20px;
     background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
     color: #fff;
@@ -441,3 +497,4 @@
 
 </body>
 </html>
+
